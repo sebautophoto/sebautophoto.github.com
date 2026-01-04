@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -6,7 +6,7 @@
   <title>Sébastien – Photographe Automobile</title>
   <style>
     body {
-      margin: 0;
+      margin:0;
       font-family: Arial, Helvetica, sans-serif;
       color: #f2f2f2;
       background-color: #111;
@@ -18,7 +18,7 @@
       background: rgba(0,0,0,0.85);
       text-align:center;
       padding:15px 0;
-      z-index: 10;
+      z-index:10;
     }
     nav a { color:#fff; margin:0 15px; text-decoration:none; font-weight:bold; }
     header {
@@ -76,9 +76,11 @@
 <section id="calendar">
   <h2>Réservations</h2>
   <div class="calendar">
-    <p>Choisissez votre créneau :</p>
-    <input type="date" id="date">
-    <input type="time" id="time">
+    <p>Choisissez votre créneau (minimum 2 jours) :</p>
+    <label for="start">Date de début :</label>
+    <input type="date" id="start">
+    <label for="end">Date de fin :</label>
+    <input type="date" id="end">
     <button onclick="requestBooking()">Demander réservation</button>
     <p id="message"></p>
   </div>
@@ -86,7 +88,7 @@
 
 <section id="contact">
   <h2>Contact</h2>
-  <p>Email : contact@sebastien-photo.fr</p>
+  <p>Email : sebastienjoseferrer@gmail.com</p>
   <p>Instagram : @sebastien.photo</p>
 </section>
 
@@ -95,17 +97,30 @@
 </footer>
 
 <script>
-  function requestBooking() {
-    const date = document.getElementById('date').value;
-    const time = document.getElementById('time').value;
-    if(date && time){
-      document.getElementById('message').innerText = 
-      `Demande envoyée pour le ${date} à ${time}. Vous serez contacté pour confirmation.`;
-      // Pour automatiser, on pourra relier à Google Forms ou Calendly
-    } else {
-      document.getElementById('message').innerText = 'Veuillez sélectionner une date et un créneau.';
-    }
+function requestBooking() {
+  const start = document.getElementById('start').value;
+  const end = document.getElementById('end').value;
+  const messageEl = document.getElementById('message');
+
+  if(!start || !end){
+    messageEl.innerText = "Veuillez sélectionner les deux dates.";
+    return;
   }
+
+  const startDate = new Date(start);
+  const endDate = new Date(end);
+  const diffTime = endDate - startDate;
+  const diffDays = diffTime / (1000 * 60 * 60 * 24) + 1; // inclut le jour de début
+
+  if(diffDays < 2){
+    messageEl.innerText = "Vous devez sélectionner un minimum de 2 jours.";
+    return;
+  }
+
+  const subject = encodeURIComponent("Demande réservation photo");
+  const body = encodeURIComponent(`Bonjour Sébastien,\n\nJe souhaite réserver un créneau du ${start} au ${end}.\nMerci.\n\nCordialement.`);
+  window.location.href = `mailto:sebastienjoseferrer@gmail.com?subject=${subject}&body=${body}`;
+}
 </script>
 
 </body>
