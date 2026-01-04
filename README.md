@@ -88,7 +88,7 @@
 
 <section id="contact">
   <h2>Contact</h2>
-  <p>Email : sebastienjoseferrer@gmail.com</p>
+  <p>Email : sebastienzozoferrer@gmail.com</p>
   <p>Instagram : @sebastien.photo</p>
 </section>
 
@@ -119,7 +119,7 @@ function requestBooking() {
 
   const subject = encodeURIComponent("Demande réservation photo");
   const body = encodeURIComponent(`Bonjour Sébastien,\n\nJe souhaite réserver un créneau du ${start} au ${end}.\nMerci.\n\nCordialement.`);
-  window.location.href = `mailto:sebastienjoseferrer@gmail.com?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:sebastienzozoferrer@gmail.com?subject=${subject}&body=${body}`;
 }
 </script>
 
