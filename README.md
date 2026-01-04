@@ -1,169 +1,133 @@
-
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sébastien – Photographe Automobile</title>
-<style>
-body {margin:0; font-family:Arial, Helvetica, sans-serif; color:#f2f2f2; background-color:#111;}
-nav {position: fixed; top:0; width:100%; background: rgba(0,0,0,0.85); text-align:center; padding:15px 0; z-index:10;}
-nav a {color:#fff; margin:0 15px; text-decoration:none; font-weight:bold;}
-header {height:100vh; background: url('background.jpg') center/cover no-repeat; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:20px;}
-header h1 {font-size:3rem; margin-bottom:10px;}
-header p {max-width:700px; opacity:0.9;}
-section {padding:80px 10%;}
-h2 {font-size:2rem; margin-bottom:40px; border-left:4px solid #e10600; padding-left:15px;}
-.gallery {display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:15px;}
-.gallery img {width:100%; border-radius:6px; object-fit:cover;}
-.calendar {background:#222; padding:20px; border-radius:6px; max-width:500px;}
-.calendar label, .calendar input, .calendar button {display:block; width:100%; margin:5px 0; padding:10px;}
-.reservation-list {margin-top:20px; background:#333; padding:15px; border-radius:6px; max-height:400px; overflow-y:auto;}
-.reservation-item {border-bottom:1px solid #555; padding:5px 0; display:flex; justify-content:space-between; align-items:center;}
-.reservation-text {flex:1;}
-.reservation-buttons button {margin-left:5px; padding:5px 10px;}
-footer {text-align:center; padding:30px; background:#000; font-size:0.9rem; opacity:0.7;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sébastien Zozoferrer - Photographe Auto</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FullCalendar pour calendrier interactif -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+    <!-- Lightbox (GLightbox) -->
+    <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 </head>
 <body>
+    <!-- Menu -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Galerie</a></li>
+                <li><a href="#booking">Réservation</a></li>
+                <li><a href="#testimonials">Témoignages</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#instagram">Instagram</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<nav>
-<a href="#accueil">Accueil</a>
-<a href="#apropos">À propos</a>
-<a href="#portfolio">Portfolio</a>
-<a href="#calendar">Réservations</a>
-<a href="#contact">Contact</a>
-</nav>
+    <!-- Accueil -->
+    <section id="home" class="hero">
+        <h1>Sébastien Zozoferrer</h1>
+        <p>Photographe automobile passionné. Capturer la beauté et la puissance de chaque véhicule.</p>
+    </section>
 
-<header id="accueil">
-<h1>Sébastien</h1>
-<p>Photographe automobile – Capturer la vitesse, la ligne et l’ambiance paddock. Disponible pour collaborations et projets professionnels 2026.</p>
-</header>
+    <!-- À propos -->
+    <section id="about">
+        <h2>À propos de moi</h2>
+        <p>Je suis Sébastien, photographe automobile depuis plus de 10 ans. Mon objectif est de sublimer chaque véhicule, qu'il s'agisse de voitures de collection, de sportives ou de créations uniques. Je travaille sur différents événements, circuits et shooting privés.</p>
+    </section>
 
-<section id="apropos">
-<h2>À propos</h2>
-<p>Passionné par l’automobile, je photographie la compétition, les véhicules et l’ambiance qui les entoure. Mon objectif : mettre en valeur l’action et l’esthétique de chaque scène.</p>
-</section>
+    <!-- Services -->
+    <section id="services">
+        <h2>Services</h2>
+        <ul class="services-list">
+            <li>Shooting photo sur circuits</li>
+            <li>Shooting extérieur personnalisé</li>
+            <li>Retouche professionnelle des photos</li>
+            <li>Couverture d’événements automobiles</li>
+            <li>Galerie et impressions pour les clients</li>
+        </ul>
+    </section>
 
-<section id="portfolio">
-<h2>Portfolio</h2>
-<div class="gallery">
-<img src="photo1.jpg" alt="Photo 1">
-<img src="photo2.jpg" alt="Photo 2">
-<img src="photo3.jpg" alt="Photo 3">
-<img src="photo4.jpg" alt="Photo 4">
-<img src="photo5.jpg" alt="Photo 5">
-</div>
-</section>
+    <!-- Galerie -->
+    <section id="gallery">
+        <h2>Galerie</h2>
+        <div class="photo-grid">
+            <a href="images/photo1.jpg" class="glightbox"><img src="images/photo1.jpg" alt="Photo 1"></a>
+            <a href="images/photo2.jpg" class="glightbox"><img src="images/photo2.jpg" alt="Photo 2"></a>
+            <a href="images/photo3.jpg" class="glightbox"><img src="images/photo3.jpg" alt="Photo 3"></a>
+            <a href="images/photo4.jpg" class="glightbox"><img src="images/photo4.jpg" alt="Photo 4"></a>
+            <a href="images/photo5.jpg" class="glightbox"><img src="images/photo5.jpg" alt="Photo 5"></a>
+        </div>
+    </section>
 
-<section id="calendar">
-<h2>Réservations</h2>
-<div class="calendar">
-<p>Choisissez votre créneau et indiquez le lieu et l'événement :</p>
+    <!-- Réservation -->
+    <section id="booking">
+        <h2>Réservation</h2>
+        <div class="booking-container">
+            <div id="calendar"></div>
+            <form id="bookingForm">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" required>
 
-<label for="start">Date de début :</label>
-<input type="date" id="start">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
 
-<label for="end">Date de fin :</label>
-<input type="date" id="end">
+                <label for="eventLocation">Lieu et Événement :</label>
+                <input type="text" id="eventLocation" name="eventLocation" placeholder="Ex: Circuit de Nogaro, Drift Day" required>
 
-<label for="location">Lieu :</label>
-<input type="text" id="location" placeholder="Ex : Circuit de Nogaro">
+                <label for="timeSlot">Créneau :</label>
+                <select id="timeSlot" name="timeSlot" required>
+                    <option value="10:00-12:00">10:00 - 12:00</option>
+                    <option value="12:00-14:00">12:00 - 14:00</option>
+                    <option value="14:00-16:00">14:00 - 16:00</option>
+                    <option value="16:00-18:00">16:00 - 18:00</option>
+                </select>
 
-<label for="event">Événement :</label>
-<input type="text" id="event" placeholder="Ex : Course, shooting voiture">
+                <button type="submit">Envoyer la réservation</button>
+            </form>
+        </div>
+        <p id="bookingMessage"></p>
+    </section>
 
-<button onclick="requestBooking()">Réserver</button>
-<p id="message"></p>
+    <!-- Témoignages -->
+    <section id="testimonials">
+        <h2>Témoignages</h2>
+        <div class="testimonial">
+            <p>"Super photographe, vraiment professionnel et créatif!"</p>
+            <span>- Client heureux</span>
+        </div>
+        <div class="testimonial">
+            <p>"Les photos de ma voiture sont incroyables, je recommande fortement!"</p>
+            <span>- Passionné auto</span>
+        </div>
+    </section>
 
-<div class="reservation-list" id="reservationList">
-<strong>Historique des réservations :</strong>
-</div>
-</div>
-</section>
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email : <a href="mailto:sebastienzozoferrer@gmail.com">sebastienzozoferrer@gmail.com</a></p>
+    </section>
 
-<section id="contact">
-<h2>Contact</h2>
-<p>Email : sebastienzozoferrer@gmail.com</p>
-<p>Instagram : Seb_autophoto</p>
-</section>
+    <!-- Instagram -->
+    <section id="instagram">
+        <h2>Instagram</h2>
+        <p>Suivez-moi : <a href="https://www.instagram.com/seb-autophoto/" target="_blank">@seb-autophoto</a></p>
+    </section>
 
-<footer>
-© 2026 – Sébastien | Photographe Automobile
-</footer>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Sébastien Zozoferrer. Tous droits réservés.</p>
+    </footer>
 
-<script>
-function getReservations(){ return JSON.parse(localStorage.getItem('reservations')) || []; }
-function saveReservations(reservations){ localStorage.setItem('reservations', JSON.stringify(reservations)); }
-
-function requestBooking(){
-  const start = document.getElementById('start').value;
-  const end = document.getElementById('end').value;
-  const location = document.getElementById('location').value.trim();
-  const event = document.getElementById('event').value.trim();
-  const messageEl = document.getElementById('message');
-
-  if(!start || !end || !location || !event){
-    messageEl.innerText = "Veuillez remplir toutes les informations.";
-    return;
-  }
-
-  let reservations = getReservations();
-  reservations.push({start, end, location, event, status:"En attente"});
-  saveReservations(reservations);
-
-  const subject = encodeURIComponent("Demande réservation photo");
-  const body = encodeURIComponent(
-    `Bonjour Sébastien,\n\nJe souhaite réserver un créneau du ${start} au ${end}.\nLieu : ${location}\nÉvénement : ${event}\n\nMerci.\n\nCordialement.`
-  );
-  window.location.href = `mailto:sebastienzozoferrer@gmail.com?subject=${subject}&body=${body}`;
-
-  renderReservations();
-  messageEl.innerText = "Réservation enregistrée et mail préparé.";
-}
-
-function renderReservations(){
-  const reservationList = document.getElementById('reservationList');
-  let reservations = getReservations();
-  reservationList.innerHTML = "<strong>Historique des réservations :</strong>";
-  
-  reservations.forEach((r,index)=>{
-    const div = document.createElement('div');
-    div.className = 'reservation-item';
-    
-    const textDiv = document.createElement('div');
-    textDiv.className = 'reservation-text';
-    textDiv.innerText = `${r.start} → ${r.end} | ${r.location} | ${r.event} | Statut : ${r.status}`;
-    
-    const btnDiv = document.createElement('div');
-    btnDiv.className = 'reservation-buttons';
-    
-    const approveBtn = document.createElement('button');
-    approveBtn.innerText = "✅ Approuver";
-    approveBtn.onclick = () => { updateStatus(index,"Approuvé"); };
-    
-    const rejectBtn = document.createElement('button');
-    rejectBtn.innerText = "❌ Refuser";
-    rejectBtn.onclick = () => { updateStatus(index,"Refusé"); };
-    
-    btnDiv.appendChild(approveBtn);
-    btnDiv.appendChild(rejectBtn);
-    
-    div.appendChild(textDiv);
-    div.appendChild(btnDiv);
-    reservationList.appendChild(div);
-  });
-}
-
-function updateStatus(index, status){
-  let reservations = getReservations();
-  reservations[index].status = status;
-  saveReservations(reservations);
-  renderReservations();
-}
-
-// Initialisation
-renderReservations();
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
