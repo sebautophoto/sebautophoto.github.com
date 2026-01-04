@@ -16,7 +16,7 @@ h2 {font-size:2rem; margin-bottom:40px; border-left:4px solid #e10600; padding-l
 .gallery {display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:15px;}
 .gallery img {width:100%; border-radius:6px; object-fit:cover;}
 .calendar {background:#222; padding:20px; border-radius:6px; max-width:500px;}
-.calendar label, .calendar input, .calendar select, .calendar button {display:block; width:100%; margin:5px 0; padding:10px;}
+.calendar label, .calendar input, .calendar button {display:block; width:100%; margin:5px 0; padding:10px;}
 .reservation-list {margin-top:20px; background:#333; padding:15px; border-radius:6px; max-height:400px; overflow-y:auto;}
 .reservation-item {border-bottom:1px solid #555; padding:5px 0; display:flex; justify-content:space-between; align-items:center;}
 .reservation-text {flex:1;}
@@ -58,10 +58,13 @@ footer {text-align:center; padding:30px; background:#000; font-size:0.9rem; opac
 <section id="calendar">
 <h2>Réservations</h2>
 <div class="calendar">
-<p>Choisissez un créneau disponible et indiquez le lieu et l'événement :</p>
+<p>Choisissez votre créneau et indiquez le lieu et l'événement :</p>
 
-<label for="slot">Sélectionnez un créneau :</label>
-<select id="slot"></select>
+<label for="start">Date de début :</label>
+<input type="date" id="start">
+
+<label for="end">Date de fin :</label>
+<input type="date" id="end">
 
 <label for="location">Lieu :</label>
 <input type="text" id="location" placeholder="Ex : Circuit de Nogaro">
@@ -69,7 +72,7 @@ footer {text-align:center; padding:30px; background:#000; font-size:0.9rem; opac
 <label for="event">Événement :</label>
 <input type="text" id="event" placeholder="Ex : Course, shooting voiture">
 
-<button onclick="bookSlot()">Réserver</button>
+<button onclick="requestBooking()">Réserver</button>
 <p id="message"></p>
 
 <div class="reservation-list" id="reservationList">
@@ -81,7 +84,7 @@ footer {text-align:center; padding:30px; background:#000; font-size:0.9rem; opac
 <section id="contact">
 <h2>Contact</h2>
 <p>Email : sebastienzozoferrer@gmail.com</p>
-<p>Instagram : @seb-autophoto</p>
+<p>Instagram : Seb_autophoto</p>
 </section>
 
 <footer>
@@ -89,57 +92,32 @@ footer {text-align:center; padding:30px; background:#000; font-size:0.9rem; opac
 </footer>
 
 <script>
-// Créneaux disponibles
-let availableSlots = [
-  "2026-01-10",
-  "2026-01-12",
-  "2026-01-15",
-  "2026-01-18",
-  "2026-01-20"
-];
-
 function getReservations(){ return JSON.parse(localStorage.getItem('reservations')) || []; }
 function saveReservations(reservations){ localStorage.setItem('reservations', JSON.stringify(reservations)); }
 
-function updateSlotOptions(){
-  const slotSelect = document.getElementById('slot');
-  slotSelect.innerHTML = "";
-  let reservations = getReservations();
-  let takenSlots = reservations.map(r => r.slot);
-  availableSlots.forEach(slot => {
-    if(!takenSlots.includes(slot)){
-      let option = document.createElement('option');
-      option.value = slot;
-      option.text = slot;
-      slotSelect.appendChild(option);
-    }
-  });
-}
-
-function bookSlot(){
-  const slot = document.getElementById('slot').value;
+function requestBooking(){
+  const start = document.getElementById('start').value;
+  const end = document.getElementById('end').value;
   const location = document.getElementById('location').value.trim();
   const event = document.getElementById('event').value.trim();
   const messageEl = document.getElementById('message');
 
-  if(!slot || !location || !event){
+  if(!start || !end || !location || !event){
     messageEl.innerText = "Veuillez remplir toutes les informations.";
     return;
   }
 
   let reservations = getReservations();
-  reservations.push({slot, location, event, status:"En attente"});
+  reservations.push({start, end, location, event, status:"En attente"});
   saveReservations(reservations);
 
-  // Mail client prêt
   const subject = encodeURIComponent("Demande réservation photo");
   const body = encodeURIComponent(
-    `Bonjour Sébastien,\n\nJe souhaite réserver le créneau du ${slot}.\nLieu : ${location}\nÉvénement : ${event}\n\nMerci.\n\nCordialement.`
+    `Bonjour Sébastien,\n\nJe souhaite réserver un créneau du ${start} au ${end}.\nLieu : ${location}\nÉvénement : ${event}\n\nMerci.\n\nCordialement.`
   );
   window.location.href = `mailto:sebastienzozoferrer@gmail.com?subject=${subject}&body=${body}`;
 
   renderReservations();
-  updateSlotOptions();
   messageEl.innerText = "Réservation enregistrée et mail préparé.";
 }
 
@@ -154,7 +132,7 @@ function renderReservations(){
     
     const textDiv = document.createElement('div');
     textDiv.className = 'reservation-text';
-    textDiv.innerText = `${r.slot} | ${r.location} | ${r.event} | Statut : ${r.status}`;
+    textDiv.innerText = `${r.start} → ${r.end} | ${r.location} | ${r.event} | Statut : ${r.status}`;
     
     const btnDiv = document.createElement('div');
     btnDiv.className = 'reservation-buttons';
@@ -185,7 +163,6 @@ function updateStatus(index, status){
 
 // Initialisation
 renderReservations();
-updateSlotOptions();
 </script>
 
 </body>
