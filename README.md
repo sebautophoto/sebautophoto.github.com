@@ -16,7 +16,7 @@ h2 {font-size:2rem; margin-bottom:40px; border-left:4px solid #e10600; padding-l
 .gallery {display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:15px;}
 .gallery img {width:100%; border-radius:6px; object-fit:cover;}
 .calendar {background:#222; padding:20px; border-radius:6px; max-width:500px;}
-.calendar input, .calendar select, .calendar button {padding:10px; margin:5px 0; width:100%;}
+.calendar label, .calendar input, .calendar select, .calendar button {display:block; width:100%; margin:5px 0; padding:10px;}
 .reservation-list {margin-top:20px; background:#333; padding:15px; border-radius:6px; max-height:400px; overflow-y:auto;}
 .reservation-item {border-bottom:1px solid #555; padding:5px 0; display:flex; justify-content:space-between; align-items:center;}
 .reservation-text {flex:1;}
@@ -81,7 +81,7 @@ footer {text-align:center; padding:30px; background:#000; font-size:0.9rem; opac
 <section id="contact">
 <h2>Contact</h2>
 <p>Email : sebastienzozoferrer@gmail.com</p>
-<p>Instagram : @sebastien.photo</p>
+<p>Instagram : @seb-autophoto</p>
 </section>
 
 <footer>
@@ -89,7 +89,7 @@ footer {text-align:center; padding:30px; background:#000; font-size:0.9rem; opac
 </footer>
 
 <script>
-// Définir les créneaux disponibles (exemple : dates format YYYY-MM-DD)
+// Créneaux disponibles
 let availableSlots = [
   "2026-01-10",
   "2026-01-12",
@@ -131,7 +131,7 @@ function bookSlot(){
   reservations.push({slot, location, event, status:"En attente"});
   saveReservations(reservations);
 
-  // Mail prêt à envoyer
+  // Mail client prêt
   const subject = encodeURIComponent("Demande réservation photo");
   const body = encodeURIComponent(
     `Bonjour Sébastien,\n\nJe souhaite réserver le créneau du ${slot}.\nLieu : ${location}\nÉvénement : ${event}\n\nMerci.\n\nCordialement.`
@@ -148,7 +148,7 @@ function renderReservations(){
   let reservations = getReservations();
   reservationList.innerHTML = "<strong>Historique des réservations :</strong>";
   
-  reservations.forEach((r, index)=>{
+  reservations.forEach((r,index)=>{
     const div = document.createElement('div');
     div.className = 'reservation-item';
     
