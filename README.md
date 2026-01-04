@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sebix – Photographe Automobile</title>
-  <meta name="description" content="Photographe automobile – action, paddock, esthétique. Disponible pour collaborations 2026." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sébastien – Photographe Automobile</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background-color: #0f0f0f;
       color: #f2f2f2;
+      background-color: #111;
     }
+    nav {
+      position: fixed;
+      top:0;
+      width:100%;
+      background: rgba(0,0,0,0.85);
+      text-align:center;
+      padding:15px 0;
+      z-index: 10;
+    }
+    nav a { color:#fff; margin:0 15px; text-decoration:none; font-weight:bold; }
     header {
       height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero.jpg') center/cover no-repeat;
+      background: url('background.jpg') center/cover no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -22,126 +31,82 @@
       text-align: center;
       padding: 20px;
     }
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-      letter-spacing: 2px;
-    }
-    header p {
-      max-width: 700px;
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0,0,0,0.85);
-      padding: 15px 0;
-      text-align: center;
-      z-index: 10;
-    }
-    nav a {
-      color: #ffffff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-    section {
-      padding: 80px 10%;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 40px;
-      border-left: 4px solid #e10600;
-      padding-left: 15px;
-    }
-    .about {
-      max-width: 800px;
-      line-height: 1.7;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-    }
-    .gallery img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 6px;
-    }
-    .contact {
-      max-width: 600px;
-    }
-    .contact p {
-      margin-bottom: 10px;
-    }
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #000000;
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
-      section {
-        padding: 60px 8%;
-      }
-    }
+    header h1 { font-size: 3rem; margin-bottom: 10px; }
+    header p { max-width: 700px; opacity: 0.9; }
+    section { padding:80px 10%; }
+    h2 { font-size:2rem; margin-bottom:40px; border-left:4px solid #e10600; padding-left:15px; }
+    .gallery { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:15px; }
+    .gallery img { width:100%; border-radius:6px; object-fit:cover; }
+    .calendar { background:#222; padding:20px; border-radius:6px; max-width:400px; }
+    .calendar input, .calendar button { padding:10px; margin:5px 0; width:100%; }
+    footer { text-align:center; padding:30px; background:#000; font-size:0.9rem; opacity:0.7; }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#apropos">À propos</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<nav>
+  <a href="#accueil">Accueil</a>
+  <a href="#apropos">À propos</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#calendar">Réservations</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <header id="accueil">
-    <h1>Sebix</h1>
-    <p>Photographe automobile – Action, esthétique et ambiance paddock. Disponible pour collaborations et projets professionnels à partir de 2026.</p>
-  </header>
+<header id="accueil">
+  <h1>Sébastien</h1>
+  <p>Photographe automobile – Capturer la vitesse, la ligne et l’ambiance paddock. Disponible pour collaborations et projets professionnels 2026.</p>
+</header>
 
-  <section id="apropos">
-    <h2>À propos</h2>
-    <div class="about">
-      <p>Passionné par l’automobile et la compétition, je pratique la photographie automobile avec l’objectif de capturer la vitesse, les lignes et l’émotion qui entourent chaque véhicule et chaque événement.</p>
-      <p>Après plusieurs projets personnels et des retours positifs sur mon travail, je souhaite aujourd’hui me professionnaliser et proposer mes services aux teams, préparateurs et acteurs du sport automobile.</p>
-    </div>
-  </section>
+<section id="apropos">
+  <h2>À propos</h2>
+  <p>Passionné par l’automobile, je photographie la compétition, les véhicules et l’ambiance qui les entoure. Mon objectif : mettre en valeur l’action et l’esthétique de chaque scène.</p>
+</section>
 
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="gallery">
-      <!-- Remplace ces images par tes propres photos -->
-      <img src="photo1.jpg" alt="Photographie automobile 1" />
-      <img src="photo2.jpg" alt="Photographie automobile 2" />
-      <img src="photo3.jpg" alt="Photographie automobile 3" />
-      <img src="photo4.jpg" alt="Photographie automobile 4" />
-      <img src="photo5.jpg" alt="Photographie automobile 5" />
-      <img src="photo6.jpg" alt="Photographie automobile 6" />
-    </div>
-  </section>
+<section id="portfolio">
+  <h2>Portfolio</h2>
+  <div class="gallery">
+    <img src="photo1.jpg" alt="Photo 1">
+    <img src="photo2.jpg" alt="Photo 2">
+    <img src="photo3.jpg" alt="Photo 3">
+    <img src="photo4.jpg" alt="Photo 4">
+    <img src="photo5.jpg" alt="Photo 5">
+  </div>
+</section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact">
-      <p><strong>Email :</strong> contact@tonsite.fr</p>
-      <p><strong>Instagram :</strong> @toninstagram</p>
-      <p>Disponible pour collaborations, événements et projets automobiles.</p>
-    </div>
-  </section>
+<section id="calendar">
+  <h2>Réservations</h2>
+  <div class="calendar">
+    <p>Choisissez votre créneau :</p>
+    <input type="date" id="date">
+    <input type="time" id="time">
+    <button onclick="requestBooking()">Demander réservation</button>
+    <p id="message"></p>
+  </div>
+</section>
 
-  <footer>
-    © 2026 – Sebix | Photographe Automobile
-  </footer>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email : contact@sebastien-photo.fr</p>
+  <p>Instagram : @sebastien.photo</p>
+</section>
+
+<footer>
+  © 2026 – Sébastien | Photographe Automobile
+</footer>
+
+<script>
+  function requestBooking() {
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    if(date && time){
+      document.getElementById('message').innerText = 
+      `Demande envoyée pour le ${date} à ${time}. Vous serez contacté pour confirmation.`;
+      // Pour automatiser, on pourra relier à Google Forms ou Calendly
+    } else {
+      document.getElementById('message').innerText = 'Veuillez sélectionner une date et un créneau.';
+    }
+  }
+</script>
 
 </body>
 </html>
